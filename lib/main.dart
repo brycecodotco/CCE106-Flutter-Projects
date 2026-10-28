@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:labtasks/AlignmentDemo.dart';
 import 'package:labtasks/edgeAct.dart';
 import 'pavlova.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: edgeAct(),
+      home: AlignmentDemo(),
     );
   }
 }
