@@ -10,7 +10,8 @@ class AlignmentDemo extends StatelessWidget {
         title: Text('Alignment Demo'),
       ),
       body: Center(
-        child: Row(
+        child: Column(
+        //child: Row(
           textBaseline: TextBaseline.alphabetic,
           //----CrossAxisAlignment----
           //crossAxisAlignment: CrossAxisAlignment.center,

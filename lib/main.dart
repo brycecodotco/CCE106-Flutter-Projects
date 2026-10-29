@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:labtasks/AlignmentDemo.dart';
+import 'package:labtasks/alignmentDemo.dart';
 import 'package:labtasks/edgeAct.dart';
 import 'pavlova.dart';
 
