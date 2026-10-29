@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:labtasks/alignmentDemo.dart';
 import 'package:labtasks/edgeAct.dart';
+import 'package:labtasks/login.dart';
 import 'pavlova.dart';
 
 void main() {
@@ -12,9 +13,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      title: "Flutter Demo",
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
       debugShowCheckedModeBanner: false,
-      home: AlignmentDemo(),
+      home: LoginPage(),
     );
   }
 }
