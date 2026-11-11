@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import '../models/userdata.dart';
 
 class Infoheader extends StatelessWidget {
-  Infoheader({super.key, required this.userdata});
+  const Infoheader({super.key, required this.userdata});
 
   final Userdata userdata;
 
-  var followTxtStyle = const TextStyle(
+  static const followTxtStyle = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
   );

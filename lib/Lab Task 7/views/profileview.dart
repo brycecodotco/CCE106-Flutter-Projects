@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:labtasks/Lab Task 7/models/usercomment.dart';
-import 'package:labtasks/Lab Task 7/models/userdata.dart';
-import 'package:labtasks/Lab Task 7/models/userpost.dart';
+import '../models/usercomment.dart';
+import '../models/userdata.dart';
+import '../models/userpost.dart';
 
 enum CommentSort { newest, mostLiked, oldest }
 
@@ -99,12 +99,19 @@ class _ProfileViewState extends State<ProfileView> {
     commentFocus.unfocus();
 
     // Save so the comment is still there after closing the app.
-    await widget.userdata.saveComments(post);
+    final saved = await widget.userdata.saveComments(post);
+    if (!mounted) return;
+
+    if (!saved) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Comment could not be saved.')),
+      );
+    }
 
     // Bring the new comment into view.
     await Future.delayed(const Duration(milliseconds: 100));
 
-    if (!scrollController.hasClients) return;
+    if (!mounted || !scrollController.hasClients) return;
 
     if (sort == CommentSort.oldest) {
       scrollController.animateTo(

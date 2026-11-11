@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:/labtasks/socialmedia.dart';
+import 'package:labtasks/Lab Task 7/socialmedia.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -16,29 +16,31 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   void initState() {
-    errormessage = 'This is an errormessage';
+    errormessage = '';
     isError = false;
     super.initState();
   }
 
   @override
   void dispose() {
+    usernameController.dispose();
+    passwordController.dispose();
     super.dispose();
   }
 
-  void checkLogin(username, password) {
+  /// Returns true when the input is valid. Also updates the error message.
+  bool checkLogin(String username, String password) {
+    String message = '';
+    if (username.trim().isEmpty) {
+      message = 'Please input your username!';
+    } else if (password.isEmpty) {
+      message = 'Please input your password!';
+    }
     setState(() {
-      if (username == "") {
-        errormessage = "Please input your username!";
-        isError = true;
-      } else if (password == "") {
-        errormessage = "Please input your password!";
-        isError = true;
-      } else {
-        errormessage = "";
-        isError = false;
-      }
+      errormessage = message;
+      isError = message.isNotEmpty;
     });
+    return message.isEmpty;
   }
 
   @override
@@ -57,6 +59,8 @@ class _LoginFormState extends State<LoginForm> {
                     'assets/logo.png',
                     height: 48,
                     width: 48,
+                    errorBuilder: (_, __, ___) =>
+                        const Icon(Icons.account_circle, size: 48),
                   ),
                   const SizedBox(width: 12),
                   Text('TIKITOKTOK', style: txtstyle),
@@ -82,33 +86,36 @@ class _LoginFormState extends State<LoginForm> {
                 ),
               ),
               const SizedBox(height: 15),
-              SizedBox(height: 15),
+              if (isError) ...[
+                Text(errormessage, style: errortxtstyle),
+                const SizedBox(height: 15),
+              ],
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size.fromHeight(50),
                   backgroundColor: Colors.blue,
                 ),
                 onPressed: () {
-                  checkLogin(
+                  final ok = checkLogin(
                     usernameController.text,
                     passwordController.text,
                   );
-                  if (!isError) {
+                  if (ok) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Socialmedia(),
+                        builder: (context) => const Socialmedia(),
                       ),
                     );
                   }
                 },
                 child: Text('LOGIN', style: txtstyle2),
-              ), // ElevatedButton
+              ),
             ],
-          ), // Column
-        ), // Container
-      ), // Center
-    ); // Scaffold
+          ),
+        ),
+      ),
+    );
   }
 }
 

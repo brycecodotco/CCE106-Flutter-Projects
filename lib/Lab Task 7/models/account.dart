@@ -7,8 +7,6 @@ class Account {
   final String numFollowing;
   final String numFriends;
 
-
-
   Account({
     required this.name,
     required this.email,

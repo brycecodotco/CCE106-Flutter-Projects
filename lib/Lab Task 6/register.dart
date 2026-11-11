@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:labtasks/login.dart';
+import 'package:labtasks/Lab%20Task%206/login.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
