@@ -46,4 +46,54 @@ class Userdata {
       isLiked: true,
     ),
   ];
+
+List<Friend> friendList = [
+  Friend(img: 'assets/images/user1.jpg', name: 'John Doe'),
+  Friend(img: 'assets/images/user2.jpg', name: 'Jane Smith'),
+  Friend(img: 'assets/images/user3.jpg', name: 'Alice Johnson'),
+  Friend(img: 'assets/images/user4.jpg', name: 'Bob Brown'),
+  Friend(img: 'assets/images/user5.jpg', name: 'Charlie Davis'),
+  Friend(img: 'assets/images/user6.jpg', name: 'Emily Wilson'),
+];
+
+
+
+List<Usercomment> commentList = [
+    Usercomment(
+      commenterImg: 'assets/images/user1.jpg',
+      commenterName: 'John Doe',
+      commentTime: '2h ago',
+      commentContent: 'This is a sample comment content',
+    ),
+    Usercomment(
+      commenterImg: 'assets/images/user2.jpg',
+      commenterName: 'Jane Smith',
+      commentTime: '5h ago',
+      commentContent: 'Another sample comment content',
+    ),
+    Usercomment(
+      commenterImg: 'assets/images/user3.jpg',
+      commenterName: 'Alice Johnson',
+      commentTime: '1d ago',
+      commentContent: 'Yet another sample comment content',
+    ),
+    Usercomment(
+      commenterImg: 'assets/images/user4.jpg',
+      commenterName: 'Bob Brown',
+      commentTime: '2d ago',
+      commentContent: 'Sample comment content from Bob',
+    ),
+  ];
+
+  Account myUserAccount = Account(
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    img: 'assets/images/user1.jpg',
+    numFollowers: '100',
+    numPosts: '50',
+    numFollowing: '75',
+    numFriends: '30',
+  );
+
 }
+
