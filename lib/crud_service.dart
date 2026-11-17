@@ -9,6 +9,7 @@ class CrudService {
     return items.add({
       'name': name,
       'quantity': quantity,
+      'favorite': false,
       'created_at': Timestamp.now()
     });
 
@@ -31,4 +32,15 @@ class CrudService {
   Future<void> deleteItem(String id) {
     return items.doc(id).delete();
   }
+
+//Favorite
+Future<void> updateFavorite(String id, bool favorite) async {
+  await FirebaseFirestore.instance
+      .collection('items')
+      .doc(id)
+      .update({
+    'favorite': favorite,
+  });
+}
+
 }
