@@ -1,6 +1,8 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:labtasks/Lab Task 9/Login.dart';
+import 'package:labtasks/auth_service.dart';
 import 'package:labtasks/crud_service.dart';
 
 class HomePage extends StatefulWidget {
@@ -33,6 +35,13 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Firebase Codotco'),
         centerTitle: true,
         backgroundColor: Colors.teal,
+        actions: [IconButton(
+          icon: Icon(Icons.logout),
+          onPressed: () {
+            AuthService().signOut();
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => LoginPage()));
+          },
+        )],
       ),
 
       floatingActionButton: FloatingActionButton(
